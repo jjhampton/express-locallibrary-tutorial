@@ -39,13 +39,13 @@ exports.index = function(req, res){
 // Display list of all books
 exports.book_list = function(req, res, next) {
     
-Book.find({}, 'title author')
-    .populate('author')
-    .exec(function(err, list_books) {
-        if (err) { return next(err); }
-        //Successful, so render
-        res.render('book_list', { title: 'Book List', book_list: list_books });
-    });
+    Book.find({}, 'title author')
+        .populate('author')
+        .exec(function(err, list_books) {
+            if (err) { return next(err); }
+            //Successful, so render
+            res.render('book_list', { title: 'Book List', book_list: list_books });
+        });
     
 };
 
@@ -70,8 +70,8 @@ exports.book_detail = function(req, res, next) {
             title: 'Title',
             book: results.book,
             book_instances: results.book_instance
-        })
-    })
+        });
+    });
 
 };
 

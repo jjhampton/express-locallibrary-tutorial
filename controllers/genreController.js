@@ -59,9 +59,9 @@ exports.genre_create_post = function(req, res, next) {
     var errors = req.validationErrors();
 
     // Create a genre object with escaped and trimmed data
-    var genre = new Genre(
-        { name: req.body.name }
-    );
+    var genre = new Genre({ 
+        name: req.body.name 
+    });
 
     if (errors) {
         // If there are errors, render the form again, passing the previously entered values and errors
