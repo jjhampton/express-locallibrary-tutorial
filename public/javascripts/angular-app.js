@@ -1,10 +1,6 @@
-(function() {
-    angular.module('app', ['ngRoute'])
-    .config(config);
+class AppConfig {
 
-    config.$inject = ['$routeProvider', '$locationProvider'];
-
-    function config($routeProvider, $locationProvider) {
+    constructor ($routeProvider, $locationProvider) {
 
         // routing
         $locationProvider.html5Mode(true);
@@ -21,11 +17,17 @@
                 template: `
                     <h1>MEAN Squad Library</h1>
                     <p>Welcome to <em>MEAN Squad Library</em>, a library web application built with the MEAN Stack.
-                    <records-counts><records-counts>
+                    <records-counts></records-counts>
                 `
             })
     }
-})();
+    
+}
+
+angular.module('app', ['ngRoute'])
+    .config(AppConfig);
+
+
 
 
 

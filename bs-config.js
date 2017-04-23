@@ -2,6 +2,7 @@ module.exports = {
 	files: [
 		'public/index.html',
 		'public/app.js',
+		'public/template.js',
 		'public/stylesheets/styles.css'
 	],
     proxy: {

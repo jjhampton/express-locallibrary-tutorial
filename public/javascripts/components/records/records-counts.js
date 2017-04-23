@@ -1,19 +1,13 @@
-(function() {
+class RecordsCountsController {
+    $onInit() {
+      this.count = 28;
+    }
+}
 
-	angular.module('app').directive('recordsCounts', Directive);
+const RecordsCountsComponent = {
+    restrict: 'E',
+    controller: RecordsCountsController,
+    templateUrl: '/records/records-counts.html'
+};
 
-	function Directive() {
-		return {
-            restrict: 'E',
-			controller: Controller,
-            templateUrl: '/records/records-counts.html',
-		}
-	}
-
-    Controller.$inject = ['$scope'];
-
-	function Controller($scope) {
-        $scope.count = 11; 
-	}
-
-})();
+angular.module('app').component('recordsCounts', RecordsCountsComponent);
