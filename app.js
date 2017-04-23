@@ -19,7 +19,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Mongo DB connection error'));
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+//app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
@@ -31,8 +31,12 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/catalog', catalog);  // Add catalog routes to middleware chain
+//app.use('/', index);
+//app.use('/catalog', catalog);  // Add catalog routes to middleware chain
+
+app.all("/*", function(req, res, next) {
+      res.sendfile("public/index.html", { root: __dirname  });
+  });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
