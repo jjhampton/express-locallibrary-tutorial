@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "build": "gulp build",
-    "start": "node ./bin/www",
+    "start": "npm run build && node ./bin/www",
     "devstart": "npm run build && concurrently --kill-others \"nodemon ./bin/www\" \"gulp watch\" \"gulp watch\" \"browser-sync start --config bs-config.js\""
   },
   "dependencies": {
@@ -33,7 +33,6 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-ng-html2js": "^0.2.2",
-    "gulp-template": "^4.0.0",
     "nodemon": "^1.11.0"
   }
 }
