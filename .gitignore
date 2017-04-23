@@ -56,3 +56,8 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Front-end build generate files
+public/app.js
+public/scripts.js
+public/template.js
