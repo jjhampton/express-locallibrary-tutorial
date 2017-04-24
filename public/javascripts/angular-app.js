@@ -4,20 +4,16 @@ class AppConfig {
         // routing
         $locationProvider.html5Mode(true);
 
-        // foo
+        // books
         $routeProvider
-            .when("/foo", {
-                template: '<foo-bar></foo-bar>'
+            .when("/books", {
+                template: '<books-list></books-list>'
             });
 
         // default
         $routeProvider
             .when("/", {
-                template: `
-                    <h1>MEAN Squad Library</h1>
-                    <p>Welcome to <em>MEAN Squad Library</em>, a library web application built with the MEAN Stack.
-                    <record-counts></record-counts>
-                `
+                template: '<record-counts></record-counts>'
             })
     }
     

@@ -12,7 +12,18 @@
     </head>
 
     <body>
-        <div ng-view></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <app-navigation><app-navigation>
+                </div>
+                <div class="col-sm-10">
+                    <h1>MEAN Squad Library</h1>
+                    <p>Welcome to <em>MEAN Squad Library</em>, a library web application built with the MEAN Stack.
+                    <div ng-view></div>
+                </div>
+            </div>
+        </div>
         <script src="scripts.js"></script>
         <script src="app.js"></script>
         <script src="template.js"></script>        
