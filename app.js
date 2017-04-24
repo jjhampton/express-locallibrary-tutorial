@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
-var index = require('./routes/index');
 var catalog = require('./routes/catalog');
 
 var app = express();
@@ -18,10 +17,6 @@ mongoose.connect(mongoDB);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Mongo DB connection error'));
 
-// view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -31,12 +26,11 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', index);
-//app.use('/catalog', catalog);  // Add catalog routes to middleware chain
+app.use('/api', catalog);  // Add catalog routes to middleware chain 
 
-app.all("/*", function(req, res, next) {
-      res.sendfile("public/index.html", { root: __dirname  });
-  });
+app.use("/", function(req, res, next) {
+  res.sendFile("public/index.html", { root: __dirname  });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

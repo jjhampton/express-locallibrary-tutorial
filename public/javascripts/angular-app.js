@@ -1,5 +1,4 @@
 class AppConfig {
-
     constructor ($routeProvider, $locationProvider) {
 
         // routing
@@ -17,7 +16,7 @@ class AppConfig {
                 template: `
                     <h1>MEAN Squad Library</h1>
                     <p>Welcome to <em>MEAN Squad Library</em>, a library web application built with the MEAN Stack.
-                    <records-counts></records-counts>
+                    <record-counts></record-counts>
                 `
             })
     }

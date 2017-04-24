@@ -2,7 +2,8 @@
     const gulp = require('gulp');
     const concat = require('gulp-concat');
     const html2js = require('gulp-ng-html2js');
-    const public = 'public';
+
+    const dist = 'public';
 
     gulp.task('app', app);
     gulp.task('scripts', scripts);
@@ -17,7 +18,7 @@
     function app() {
 		gulp.src(['public/javascripts/**/*.js'])
 			.pipe(concat('app.js'))
-			.pipe(gulp.dest(public));
+			.pipe(gulp.dest(dist));
     }
 
     // External Javascript files
@@ -32,7 +33,7 @@
 
 		gulp.src(scripts)
 			.pipe(concat('scripts.js'))
-			.pipe(gulp.dest(public));
+			.pipe(gulp.dest(dist));
     }
 
     // Angular Templates
@@ -44,7 +45,7 @@
                 stripPrefix: 'components'
             }))
             .pipe(concat('template.js'))
-            .pipe(gulp.dest(public));
+            .pipe(gulp.dest(dist));
     }
 
     // Watches 

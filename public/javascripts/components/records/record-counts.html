@@ -1,0 +1,11 @@
+<h1>Library Records</h1>
+
+<p>The library has the following record counts:</p>
+
+<ul ng-if="$ctrl.counts">
+    <li><strong>Books:</strong> {{$ctrl.counts.bookCount}}</li>
+    <li><strong>Copies:</strong> {{$ctrl.counts.bookInstanceCount}}</li>
+    <li><strong>Copies Available:</strong> {{$ctrl.counts.availableBookInstanceCount}}</li>
+    <li><strong>Authors:</strong> {{$ctrl.counts.authorCount}}</li>
+    <li><strong>Genres:</strong> {{$ctrl.counts.genreCount}}</li>
+</ul>
