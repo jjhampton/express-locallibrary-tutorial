@@ -2,8 +2,8 @@
 
 <ul>
     <li ng-repeat="book in $ctrl.books">
-        <a href="{{book.url}}">{{book.title}} | {{book.author.name}}</a>
+        <a href="{{book.url}}">{{book.title}}</a> ({{book.author.name}})
     </li>
 </ul>
 
-<span ng-if="$ctrl.books.length === 0">There are no books</span>
+<div ng-if="$ctrl.books.length === 0">There are no books</div>

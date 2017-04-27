@@ -1,0 +1,9 @@
+<h1>Author List</h1>
+
+<ul>
+    <li ng-repeat="author in $ctrl.authors">
+        <a href="{{author.url}}">{{author.name}}</a> ({{author.lifespan}})
+    </li>
+</ul>
+
+<div ng-if="$ctrl.authors.length === 0">There are no authors</div>

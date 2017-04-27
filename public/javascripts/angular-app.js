@@ -4,6 +4,12 @@ class AppConfig {
         // routing
         $locationProvider.html5Mode(true);
 
+        // authors
+        $routeProvider
+            .when("/authors", {
+                template: '<author-list></book-list>'
+            });
+
         // books
         $routeProvider
             .when("/books", {

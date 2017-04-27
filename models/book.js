@@ -8,6 +8,13 @@ var BookSchema = Schema({
     summary: { type: String, required: true},
     isbn: { type: String, required: true },
     genre: [ { type: Schema.ObjectId, ref: 'Genre' } ]
+}, {
+    toObject: {
+        virtuals: true
+    },
+    toJSON: {
+        virtuals: true 
+    }
 });
 
 //Virtual for book's URL
