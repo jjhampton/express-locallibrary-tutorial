@@ -7,7 +7,7 @@ class AppConfig {
         // books
         $routeProvider
             .when("/books", {
-                template: '<books-list></books-list>'
+                template: '<book-list></book-list>'
             });
 
         // default

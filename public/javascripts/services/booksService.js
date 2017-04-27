@@ -4,7 +4,7 @@ class BooksService {
         this.$http = $http;
     }
 
-    getBooks() {
+    getAllBooks() {
         return this.$http.get('/api/books');
     }
 }
