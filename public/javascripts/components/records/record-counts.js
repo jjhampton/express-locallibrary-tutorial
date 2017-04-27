@@ -6,6 +6,7 @@ class RecordCountsController {
     $onInit() {
       this.recordsService.getRecordCounts().then(result => {
         this.counts = result.data;
+        this.isInitialized = true;
       });
     }
 }
