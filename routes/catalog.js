@@ -5,8 +5,7 @@ var router = express.Router();
 var bookController = require('../controllers/bookController');
 var authorController = require('../controllers/authorController');
 var genreController = require('../controllers/genreController');
-
-var book_instance_controller = require('../controllers/bookInstanceController');
+var bookInstanceController = require('../controllers/bookInstanceController');
 var recordsController = require('../controllers/recordsController');
 
 
@@ -92,6 +91,8 @@ router.get('/genres', genreController.genreList);
 
 /// BOOKINSTANCE ROUTES ///
 
+router.get('/bookinstances', bookInstanceController.bookInstanceList);
+
 /* GET request for creating a BookInstance. NOTE This must come before route that displays BookInstance (uses id) */
 //router.get('/bookinstance/create', book_instance_controller.bookinstance_create_get);
 
@@ -112,8 +113,5 @@ router.get('/genres', genreController.genreList);
 
 /* GET request for one BookInstance. */
 //router.get('/bookinstance/:id', book_instance_controller.bookinstance_detail);
-
-/* GET request for list of all BookInstance. */
-//router.get('/bookinstances', book_instance_controller.bookinstance_list);
 
 module.exports = router;

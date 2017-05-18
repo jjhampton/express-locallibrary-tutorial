@@ -3,7 +3,7 @@ var moment = require('moment');
 
 var Schema = mongoose.Schema;
 
-var BookInstanceSchema = Schema({
+var BookInstanceSchema = new Schema({
     book: { type: Schema.ObjectId, ref: 'Book', required: true },
     imprint: { type: String, required: true },
     status: {
@@ -13,6 +13,13 @@ var BookInstanceSchema = Schema({
         default: 'Maintenance'
     },
     due_back: { type: Date, default: Date.now }
+}, {
+    toObject: {
+        virtuals: true
+    },
+    toJSON: {
+        virtuals: true 
+    }
 });
 
 //Virtual for book's URL
