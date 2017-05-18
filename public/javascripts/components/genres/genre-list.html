@@ -1,0 +1,9 @@
+<h1>Genre List</h1>
+
+<ul>
+    <li ng-repeat="genre in $ctrl.genres">
+        <a href="{{genre.url}}">{{genre.name}}</a>
+    </li>
+</ul>
+
+<div ng-if="$ctrl.genres.length === 0">There are no genres</div>

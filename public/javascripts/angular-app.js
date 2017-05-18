@@ -7,13 +7,19 @@ class AppConfig {
         // authors
         $routeProvider
             .when("/authors", {
-                template: '<author-list></book-list>'
+                template: '<author-list></author-list>'
             });
 
         // books
         $routeProvider
             .when("/books", {
                 template: '<book-list></book-list>'
+            });
+
+        // genres
+        $routeProvider
+            .when("/genres", {
+                template: '<genre-list></genre-list>'
             });
 
         // default
