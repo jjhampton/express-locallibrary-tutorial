@@ -1,0 +1,15 @@
+<h1>Book Instance List</h1>
+
+<ul>
+    <li ng-repeat="instance in $ctrl.bookInstances">
+        <a href="{{instance.url}}">{{instance.book.title}} : {{instance.imprint}}</a>
+        <span ng-class="{
+            'text-success': instance.status === 'Available',
+            'text-danger': instance.status === 'Maintenance',
+            'text-warning': instance.status === 'Available'
+        }">{{instance.status}}</span>
+        <span ng-if="instance.status === 'Available'">Due: {{instance.due_back_formatted}}</span>
+    </li>
+</ul>
+
+<div ng-if="$ctrl.bookInstances.length === 0">There are no book copies in this library.</div>

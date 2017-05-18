@@ -16,6 +16,12 @@ class AppConfig {
                 template: '<book-list></book-list>'
             });
 
+        // book instances
+        $routeProvider
+            .when("/bookinstances", {
+                template: '<book-instance-list></book-instance-list>'
+            });
+
         // genres
         $routeProvider
             .when("/genres", {
