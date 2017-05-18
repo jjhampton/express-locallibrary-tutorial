@@ -2,18 +2,15 @@ var Genre = require('../models/genre');
 var Book = require('../models/book');
 var async = require('async');
 
-// Display list of all Genres
-exports.genre_list = function(req, res, next) {
+// Respond w/ list of all Genres
+exports.genreList = function(req, res, next) {
 
     Genre.find()
         .sort([['name', 'ascending']])
-        .exec(function(err, list_genres) {
+        .exec(function(err, genreList) {
             if (err) {  return next(err) }
-            //Successful, so render
-            res.render('genre_list', {
-                title: 'Genre List',
-                genre_list: list_genres
-            });
+            //Successful, so respond
+            res.json(genreList);
         });
 };
 

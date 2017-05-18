@@ -5,7 +5,7 @@ var BookInstance = require('../models/bookinstance');
 
 var async = require('async');
 
-// Display list of all books
+// Respond w/ list of all books
 exports.bookList = function(req, res, next) {
     
     Book.find({}, 'title author')

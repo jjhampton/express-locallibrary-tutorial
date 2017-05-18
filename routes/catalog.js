@@ -4,8 +4,8 @@ var router = express.Router();
 // Require controller modules
 var bookController = require('../controllers/bookController');
 var authorController = require('../controllers/authorController');
+var genreController = require('../controllers/genreController');
 
-var genre_controller = require('../controllers/genreController');
 var book_instance_controller = require('../controllers/bookInstanceController');
 var recordsController = require('../controllers/recordsController');
 
@@ -66,6 +66,8 @@ router.get('/authors', authorController.authorList);
 
 /// GENRE ROUTES ///
 
+router.get('/genres', genreController.genreList);
+
 /* GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id) */
 //router.get('/genre/create', genre_controller.genre_create_get);
 
@@ -86,9 +88,6 @@ router.get('/authors', authorController.authorList);
 
 /* GET request for one Genre. */
 //router.get('/genre/:id', genre_controller.genre_detail);
-
-/* GET request for list of all Genre. */
-//router.get('/genres', genre_controller.genre_list);
 
 
 /// BOOKINSTANCE ROUTES ///

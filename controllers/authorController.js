@@ -2,7 +2,7 @@ var Author = require('../models/author');
 var async = require('async');
 var Book = require('../models/book');
 
-//Display list of all Authors
+//Respond w/  list of all Authors
 exports.authorList = function(req, res, next) {
     
     Author.find()
