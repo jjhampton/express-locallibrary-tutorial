@@ -15,15 +15,15 @@ exports.authorList = function(req, res, next) {
 
 };
 
-//Display detail page for specific author
-exports.author_detail = function(req, res, next) {
+// Respond w/ detail for a specific author
+exports.authorDetail = function(req, res, next) {
 
     async.parallel({
         author: function(callback) {     
             Author.findById(req.params.id)
                 .exec(callback);
         },
-        authors_books: function(callback) {
+        books: function(callback) {
             Book.find({ 'author': req.params.id }, 'title summary')
                 .exec(callback);
         }
@@ -31,11 +31,7 @@ exports.author_detail = function(req, res, next) {
         if (err) { return next(err); }
 
         //Successful, so render
-        res.render('author_detail', { 
-            title: 'Author Detail', 
-            author: results.author, 
-            author_books: results.authors_books 
-        });
+        res.json(results);
     });
 
 }

@@ -15,6 +15,7 @@ router.get('/recordCounts', recordsController.counts);
 /// BOOK ROUTES ///
 
 router.get('/books', bookController.bookList);
+router.get('/books/:id', bookController.bookDetail);
 
 /* GET request for creating a Book. NOTE This must come before routes that display Book (uses id) */
 //router.get('/book/create', book_controller.book_create_get);
@@ -34,12 +35,10 @@ router.get('/books', bookController.bookList);
 // POST request to update Book
 //router.post('/book/:id/update', book_controller.book_update_post);
 
-/* GET request for one Book. */
-//router.get('/book/:id', book_controller.book_detail);
-
 /// AUTHOR ROUTES ///
 
 router.get('/authors', authorController.authorList);
+router.get('/authors/:id', authorController.authorDetail);
 
 /* GET request for creating Author. NOTE This must come before route for id (i.e. display author) */
 //router.get('/author/create', author_controller.author_create_get);
@@ -59,13 +58,10 @@ router.get('/authors', authorController.authorList);
 // POST request to update Author
 //router.post('/author/:id/update', author_controller.author_update_post);
 
-/* GET request for one Author. */
-//router.get('/author/:id', author_controller.author_detail);
-
-
 /// GENRE ROUTES ///
 
 router.get('/genres', genreController.genreList);
+router.get('/genres/:id', genreController.genreDetail);
 
 /* GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id) */
 //router.get('/genre/create', genre_controller.genre_create_get);
@@ -88,10 +84,10 @@ router.get('/genres', genreController.genreList);
 /* GET request for one Genre. */
 //router.get('/genre/:id', genre_controller.genre_detail);
 
-
 /// BOOKINSTANCE ROUTES ///
 
 router.get('/bookinstances', bookInstanceController.bookInstanceList);
+router.get('/bookinstances/:id', bookInstanceController.bookInstanceDetail);
 
 /* GET request for creating a BookInstance. NOTE This must come before route that displays BookInstance (uses id) */
 //router.get('/bookinstance/create', book_instance_controller.bookinstance_create_get);
@@ -110,8 +106,5 @@ router.get('/bookinstances', bookInstanceController.bookInstanceList);
 
 // POST request to update BookInstance
 //router.post('/bookinstance/:id/update', book_instance_controller.bookinstance_update_post);
-
-/* GET request for one BookInstance. */
-//router.get('/bookinstance/:id', book_instance_controller.bookinstance_detail);
 
 module.exports = router;

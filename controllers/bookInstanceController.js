@@ -14,14 +14,15 @@ exports.bookInstanceList = function(req, res, next) {
     
 };
 
-// Display detail page for a specific BookInstance
-exports.bookinstance_detail = function(req, res, next) {
+// Respond w/ details for a specific book instance
+
+exports.bookInstanceDetail = function(req, res, next) {
     
     BookInstance.findById(req.params.id)
         .populate('book')
-        .exec(function(err, bookinstance) {
+        .exec(function(err, bookInstance) {
             if(err) { return next(err); }
-            res.render('bookinstance_detail', { title: 'Book', bookinstance: bookinstance });
+            res.json(bookInstance);
         });
 };
 

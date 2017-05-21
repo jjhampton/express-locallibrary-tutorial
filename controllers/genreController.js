@@ -14,26 +14,22 @@ exports.genreList = function(req, res, next) {
         });
 };
 
-// Display detail page for a specific Genre
-exports.genre_detail = function(req, res, next) {
+// Respond w/ detail for a specific genre
+exports.genreDetail = function(req, res, next) {
     
     async.parallel({
         genre: function(callback) {
             Genre.findById(req.params.id)
                 .exec(callback);
         },
-        genre_books: function(callback) {
+        books: function(callback) {
             Book.find({ 'genre': req.params.id })
                 .exec(callback);
         }
     }, function(err, results) {
         if (err) { return next(err); }
         //Successful, so render
-        res.render('genre_detail', {
-            title: 'Genre Detail',
-            genre: results.genre,
-            genre_books: results.genre_books
-        });
+        res.json(results);
     });
 
 };
