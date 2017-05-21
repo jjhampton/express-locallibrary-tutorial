@@ -2,7 +2,7 @@
 
 <ul>
     <li ng-repeat="instance in $ctrl.bookInstances">
-        <a href="{{instance.url}}">{{instance.book.title}} : {{instance.imprint}}</a>
+        <a href="bookinstances/{{instance.id}}">{{instance.book.title}} : {{instance.imprint}}</a>
         <span ng-class="{
             'text-success': instance.status === 'Available',
             'text-danger': instance.status === 'Maintenance',
