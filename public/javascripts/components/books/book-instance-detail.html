@@ -1,0 +1,15 @@
+<h1>Book Instance Number: {{$ctrl.instance.id}}</h1>
+
+<p><strong>Title: </strong><a href="book/{{$ctrl.instance.book.id}}">{{$ctrl.instance.book.title}}</a></p>
+<p><strong>Imprint: </strong>{{$ctrl.instance.imprint}}</p>
+<p><strong>Status: </strong>
+    <span ng-class="{ 
+        'text-success': $ctrl.instance.status === 'Available', 
+        'text-danger': $ctrl.instance.status === 'Maintenance', 
+        'text-warning': $ctrl.instance.status === 'Loaned' || $ctrl.instance.status === 'Reserved' 
+    }">{{$ctrl.instance.status}}</span>
+</p>
+
+<p ng-if="$ctrl.instance.status !== 'Available'">
+    <strong>Due back: </strong>{{$ctrl.instance.due_back_formatted}}
+</p>

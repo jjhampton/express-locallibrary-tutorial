@@ -6,9 +6,9 @@
         <span ng-class="{
             'text-success': instance.status === 'Available',
             'text-danger': instance.status === 'Maintenance',
-            'text-warning': instance.status === 'Available'
+            'text-warning': instance.status === 'Loaned' || instance.status === 'Reserved'
         }">{{instance.status}}</span>
-        <span ng-if="instance.status === 'Available'">Due: {{instance.due_back_formatted}}</span>
+        <span ng-if="instance.status !== 'Available'">Due: {{instance.due_back_formatted}}</span>
     </li>
 </ul>
 

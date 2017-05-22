@@ -7,7 +7,6 @@ class BookInstanceDetailController {
     $onInit() {
         this.id = this.$routeParams.id;
         this.bookService.getBookInstanceDetail(this.id).then(result => {
-            console.log(result);
             this.instance = result.data;
         });
     }
