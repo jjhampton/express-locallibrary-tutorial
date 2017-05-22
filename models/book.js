@@ -8,20 +8,10 @@ var BookSchema = Schema({
     summary: { type: String, required: true},
     isbn: { type: String, required: true },
     genre: [ { type: Schema.ObjectId, ref: 'Genre' } ]
-}, {
-    toObject: {
-        virtuals: true
-    },
-    toJSON: {
-        virtuals: true 
-    }
-});
-
-//Virtual for book's URL
-BookSchema
-.virtual('url')
-.get(function() {
-    return '/catalog/book/' + this._id;
+}, { 
+    toJSON: { 
+        virtuals: true  
+    } 
 });
 
 //Export model

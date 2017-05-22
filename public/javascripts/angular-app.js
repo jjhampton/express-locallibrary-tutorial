@@ -15,6 +15,10 @@ class AppConfig {
             .when("/books", {
                 template: '<book-list></book-list>'
             });
+        $routeProvider
+            .when("/books/:id", {
+                template: '<book-detail></book-detail>'
+            });
 
         // book instances
         $routeProvider

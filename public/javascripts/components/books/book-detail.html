@@ -1,0 +1,39 @@
+<h1>Title: {{$ctrl.book.title}}</h1>
+
+<p><strong>Author: </strong><a href="authors/{{$ctrl.book.author.id}}">{{$ctrl.book.author.name}}</a></p>
+
+<p><strong>Summary: </strong>{{$ctrl.book.summary}}</p>
+
+<p><strong>ISBN: </strong>{{$ctrl.book.isbn}}</p>
+
+<p><strong>Genres: </strong>
+    <span ng-repeat="genre in $ctrl.book.genre">
+        <a href="/genres/{{genre.id}}">{{genre.name}}</a>
+    </span>
+</p>
+
+<div style="margin-top:20px">
+    <h4 ng-if="$ctrl.instances.length > 0">Copies</h4>
+    <div ng-repeat="instance in $ctrl.instances">
+        <hr>
+        <p ng-class="{ 
+            'text-success': instance.status === 'Available', 
+            'text-danger': instance.status === 'Maintenance', 
+            'text-warning': instance.status === 'Loaned' || instance.status === 'Reserved' 
+        }">{{instance.status}}</p>
+        <p><strong>Imprint: </strong>{{instance.imprint}}</p>
+        <p ng-if="instance.status !== 'Available'">
+            <strong>Due back: </strong>{{instance.due_back_formatted}}
+        </p>
+        <p><strong>Id: </strong><a href="/bookinstances/{{instance.id}}">{{instance.id}}</a></p>
+    </div>
+
+    <p ng-if="$ctrl.instances.length === 0">There are no copies of this book in the library</p>
+    
+    <hr>
+
+    <!--todo: add click handlers for these user actions -->
+    <p><a href="#">Delete Book</a></p>
+    <p><a href="#">Update Book</a></p>
+</div>
+
