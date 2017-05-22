@@ -8,7 +8,7 @@
   "scripts": {
     "build": "gulp build",
     "start": "npm run build && node ./bin/www",
-    "devstart": "npm run build && concurrently --kill-others \"nodemon ./bin/www\" \"gulp watch\" \"browser-sync start --config bs-config.js\""
+    "devstart": "npm run build && concurrently --kill-others \"nodemon --debug ./bin/www\" \"gulp watch\" \"browser-sync start --config bs-config.js\""
   },
   "dependencies": {
     "angular": "^1.6.4",
